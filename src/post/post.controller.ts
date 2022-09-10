@@ -1,3 +1,4 @@
+import { SearchPostDto } from './dto/search-post.dto';
 import {
   Controller,
   Get,
@@ -6,6 +7,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/create-post.dto';
@@ -28,6 +30,11 @@ export class PostController {
   @Get('/popular')
   getPopularPosts() {
     return this.postService.popular();
+  }
+
+  @Get('/search')
+  searchPosts(@Query() dto: SearchPostDto) {
+    return this.postService.search(dto);
   }
 
   @Get(':id')
