@@ -1,3 +1,4 @@
+import { SearchUserDto } from './dto/search-user.dto';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -29,10 +30,33 @@ export class UserService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+    return this.usersRepository.update(+id, updateUserDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async search(dto: SearchUserDto) {
+    const qb = this.usersRepository.createQueryBuilder('u');
+
+    qb.limit(dto.limit);
+    qb.take(dto.take);
+
+    if (dto.fullName) {
+      qb.andWhere(`u.fullName ILIKE :fullName`);
+    }
+    if (dto.email) {
+      qb.andWhere(`u.email ILIKE :email`);
+    }
+    if (dto.createdAt) {
+      qb.andWhere(`u.createdAt ILIKE :createdAt`);
+    }
+
+    qb.setParameters({
+      fullName: `%${dto.fullName}%`,
+      email: `%${dto.email}%`,
+      createdAt: `%${dto.createdAt}%`,
+    });
+
+    const [items, total] = await qb.getManyAndCount();
+
+    return { items, total };
   }
 }
