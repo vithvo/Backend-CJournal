@@ -18,8 +18,16 @@ export class UserService {
     return this.usersRepository.save(dto);
   }
 
-  findAll() {
-    return this.usersRepository.find();
+  async findAll() {
+    const arr = await this.usersRepository
+      .createQueryBuilder('u')
+      .leftJoinAndSelect('u.comments', 'comments')
+      .loadRelationCountAndMap('u.commentsCount', 'u.comments', 'comments')
+      .getMany();
+    return arr.map((obj) => {
+      delete obj.comments;
+      return obj;
+    });
   }
 
   findById(id: number) {

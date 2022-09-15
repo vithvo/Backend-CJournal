@@ -1,7 +1,7 @@
 import { IsArray, IsOptional, IsString } from 'class-validator';
 
 export interface OutputBlockData {
-  id?: string;
+  id: string;
 
   type: string;
 
