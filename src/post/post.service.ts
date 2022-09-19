@@ -43,7 +43,7 @@ export class PostService {
         views: () => `views + 1`,
       })
       .execute();
-    return this.repository.findOneBy({ id });
+    return this.repository.findOneByOrFail({ id });
   }
 
   create(dto: CreatePostDto, userId: number) {

@@ -14,11 +14,11 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'database',
       port: 5432,
       username: 'postgres',
       password: 'Loveislive555',
-      database: 'TJournal',
+      database: 'postgres',
       entities: [UserEntity, PostEntity, CommentEntity],
       synchronize: true,
     }),

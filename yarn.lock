@@ -1889,7 +1889,7 @@
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz"
   "version" "1.0.3"
 
-"cors@2.8.5":
+"cors@^2.8.5", "cors@2.8.5":
   "integrity" "sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g=="
   "resolved" "https://registry.npmjs.org/cors/-/cors-2.8.5.tgz"
   "version" "2.8.5"
@@ -4018,7 +4018,7 @@
     "postgres-date" "~1.0.4"
     "postgres-interval" "^1.1.0"
 
-"pg@^8.5.1", "pg@^8.8.0", "pg@>=8.0":
+"pg@^8.5.1", "pg@^8.6.0", "pg@^8.8.0", "pg@>=8.0":
   "integrity" "sha512-UXYN0ziKj+AeNNP7VDMwrehpACThH7LUl/p8TDFpEUuSejCUIwGSfxpHsPvtM6/WXFy6SU4E5RG4IJV/TZAGjw=="
   "resolved" "https://registry.npmjs.org/pg/-/pg-8.8.0.tgz"
   "version" "8.8.0"
@@ -4064,6 +4064,13 @@
   "integrity" "sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA=="
   "resolved" "https://registry.npmjs.org/pluralize/-/pluralize-8.0.0.tgz"
   "version" "8.0.0"
+
+"postgre@^0.1.8":
+  "integrity" "sha512-nP65V7ZxDzrvo1XD1Ks1rATx/QzySF6s1tNiRlv5PDghjA+YPzxvvncM/sN0hqZWjz78Txct6gArbxmxNBonXQ=="
+  "resolved" "https://registry.npmjs.org/postgre/-/postgre-0.1.8.tgz"
+  "version" "0.1.8"
+  dependencies:
+    "pg" "^8.6.0"
 
 "postgres-array@~2.0.0":
   "integrity" "sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA=="
